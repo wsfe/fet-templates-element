@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>fet-iview-temp</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+       window.globalConfig = {
+        baseURL: '//static.mock.com/105', // 数据接口基础路径
+        routeBaseUrl: '/', // history模式下的路由基础路径
+        signOutUrl: '/signOut',
+        userInfo: {
+          userName: 'laowang'
+        },
+        portalMenu: [
+          { "pCode": "0", "code": "PAGEA", "cn": "pageA", "show": 1 }
+        ],
+        portalFunc: {
+          "PAGEA": ['SAVE']
+        }
+      }
+    </script>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

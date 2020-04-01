@@ -1,0 +1,76 @@
+{
+  "name": "fet-iview-temp",
+  "version": "1.0.0",
+  "description": "A Vue.js project",
+  "author": "freefish",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --port 8080",
+    "build": "vue-cli-service build --server=online",
+    "build:beta": "vue-cli-service build --server=beta",
+    "build:report": "vue-cli-service build --report",
+    "pack": "vue-cli-service build --mode joint",
+    "pack:dev1": "npm run pack --server=dev1",
+    "sync:dev1": "npm run pack:dev1 && fet sync dev1",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit --require tests/unit/index.js"
+  },
+  "dependencies": {
+    "axios": "0.18.0",
+    "core-js": "^3",
+    "dayjs": "^1.8.18",
+    "lodash": "^4.17.15",
+    "vue": "^2.6.10",
+    "vue-router": "^3.1.2",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.2",
+    "@vue/cli-plugin-eslint": "^4.1.2",
+    "@vue/cli-plugin-unit-mocha": "^4.1.2",
+    "@vue/cli-service": "^4.1.2",
+    "@vue/eslint-config-standard": "^5.0.1",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-import": "^1.11.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "chai": "^4.1.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "faker": "^4.1.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^9.5.0",
+    "lodash-webpack-plugin": "^0.11.5",
+    "minimist": "^1.2.0",
+    "mockajax": "^1.1.7",
+    "postcss-import": "^12.0.1",
+    "postcss-url": "^8.0.0",
+    "sinon": "^8.0.2",
+    "sinon-chai": "^3.3.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.5",
+    "webpack-manifest-plugin": "^2.0.4"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">= 8.11.0",
+    "npm": ">= 6.4.0"
+  }
+}
