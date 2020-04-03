@@ -11,6 +11,10 @@ import '@/styles/index.less'
 // 自定义全局组件
 import globalComponent from '@/components/global'
 
+if (process.env.NODE_ENV === 'development') {
+  require('../mock')
+}
+
 global.vbus = new Vue()
 Vue.config.productionTip = false
 

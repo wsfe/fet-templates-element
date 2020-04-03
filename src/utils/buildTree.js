@@ -6,8 +6,8 @@
  */
 
 function buildTree (list = [], { id = 'id', pid = 'pid', rootId = '' }, nodeSchemeFun) {
-  let temp = list.slice(0)
-  let ans = []
+  const temp = list.slice(0)
+  const ans = []
 
   for (let i = 0; i < temp.length; i++) {
     const item = temp[i]

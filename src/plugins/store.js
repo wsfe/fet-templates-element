@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { VUEX_DEFAULT_CONFIG } from '@/config'
-import commonStore from '@/service/store/common'
+import defaultStore from '@/service/store'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  ...commonStore,
+  ...defaultStore,
   ...VUEX_DEFAULT_CONFIG
 })

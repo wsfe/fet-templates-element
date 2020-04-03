@@ -36,4 +36,4 @@ class MakeConst {
 export default new MakeConst({
   config: CONST_CONFIG,
   ...CONST_DEFAULT_CONFIG
-})['const']
+}).const

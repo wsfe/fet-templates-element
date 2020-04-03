@@ -32,7 +32,7 @@ class MakeApi {
     config
   }) {
     config.forEach(api => {
-      const { name, params, method, path } = api
+      const { name, params, method, path, strict } = api // name: 接口名， params: 接口需要哪些参数，method：请求方法，path:请求路径，strict: 严格模式，如果设置为true，那么请求的参数会按照params这个字段过滤，没有在这个字段里面的参数都不会传递到后端，默认false
       const apiName = `${namespace}${sep}${name}`
       const apiUrl = path
 
@@ -42,7 +42,7 @@ class MakeApi {
       Object.defineProperty(this.api, apiName, {
         value (outerParams, outerOptions) {
           const _params = isEmpty(outerParams) ? params : assign({}, params, outerParams)
-          const _data = pick(_params, Object.keys(params))
+          const _data = strict ? pick(_params, Object.keys(params)) : _params
           const url = _replaceURLparams(apiUrl, _params)
           return axios(_normoalize(assign({
             url,
@@ -74,4 +74,4 @@ function _normoalize (options, data) {
 export default new MakeApi({
   config: API_CONFIG,
   ...API_DEFAULT_CONFIG
-})['api']
+}).api

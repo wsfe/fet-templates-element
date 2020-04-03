@@ -46,25 +46,12 @@ module.exports = {
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*'
-    },
-    index: resolve('index.html'),
-    historyApiFallback: {
-      disableDotRule: true,
-      rewrites: [{ from: /.*/g, to: `/${packageJson.name}/prd/index.html` }]
     }
   },
   configureWebpack (config) {
     buildConfig[getEnv(process.env.NODE_ENV)].configureWebpack(config)
   },
   chainWebpack (config) {
-    config.plugins.delete('preload')
-    config.plugins.delete('prefetch')
-    /* config.plugin('html') */
-    config.plugin('html')
-      .tap(args => {
-        args[0].template = resolve('index.html')
-        return args
-      })
 
     /* 设置 resolve.alias */
     config.resolve.alias

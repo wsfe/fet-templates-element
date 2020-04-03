@@ -7,7 +7,7 @@ import { routerBeforeEachFunc, routerAfterEachFunc } from '@/config/interceptors
 Vue.use(VueRouter)
 
 // 注入默认配置和路由表
-let routerInstance = new VueRouter({
+const routerInstance = new VueRouter({
   ...ROUTER_DEFAULT_CONFIG,
   routes: ROUTES
 })

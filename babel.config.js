@@ -1,7 +1,6 @@
 module.exports = {
   presets: [
-    '@vue/app',
-    '@babel/preset-env'
+    '@vue/cli-plugin-babel/preset'
   ],
   // plugins: [['import', { 'libraryName': 'iview', 'libraryDirectory': 'src/components' }, 'iview'], ['import', { 'libraryName': 'lodash', 'libraryDirectory': '', 'camel2DashComponentName': false }, 'lodash']]
   // plugins: ['lodash', ['import', { 'libraryName': 'iview', 'libraryDirectory': 'src/components' }, 'iview']]

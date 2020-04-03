@@ -1,6 +1,6 @@
 import FUNC_CODES from '@/service/permission'
 
-let cache = {}
+const cache = {}
 
 function existFuncCode (permission, routeName) {
   // 没有该路由的功能码，直接返回false
