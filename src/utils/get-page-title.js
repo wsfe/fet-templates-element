@@ -1,6 +1,6 @@
-import defaultSettings from '@/settings'
+import {APP_SETTINGS} from '@/config'
 
-const title = defaultSettings.title || 'Vue Element Admin'
+const title = APP_SETTINGS.title || 'Vue Element Admin'
 
 export default function getPageTitle (pageTitle) {
   if (pageTitle) {

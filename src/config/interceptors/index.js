@@ -1,11 +1,7 @@
-import { requestSuccessFunc, requestFailFunc, responseSuccessFunc, responseFailFunc } from './axios'
-import { routerBeforeEachFunc, routerAfterEachFunc } from './router'
+import axiosInterceptor from './axios'
+import routerInterceptor from './router'
 
-export {
-  requestSuccessFunc,
-  requestFailFunc,
-  responseSuccessFunc,
-  responseFailFunc,
-  routerBeforeEachFunc,
-  routerAfterEachFunc
+export default function(pluginInstances) {
+  axiosInterceptor(pluginInstances)
+  routerInterceptor(pluginInstances)
 }

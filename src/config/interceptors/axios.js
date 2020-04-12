@@ -1,15 +1,17 @@
-import { CONSOLE_REQUEST_ENABLE, CONSOLE_RESPONSE_ENABLE } from '../index'
+import { CONSOLE_REQUEST_ENABLE, CONSOLE_RESPONSE_ENABLE } from '@/config'
 import { get } from 'lodash'
 import {setToken, getToken} from '@/utils/auth'
 
-export function requestSuccessFunc (axiosRequestConfig) {
+let routerInstance, storeInstance
+
+function requestSuccessFunc (axiosRequestConfig) {
   CONSOLE_REQUEST_ENABLE && console.info('requestInterceptorFunc', `url: ${axiosRequestConfig.url}`, axiosRequestConfig)
   // 处理权限，请求发送监控
   axiosRequestConfig.headers.Authorization = getToken()
   return axiosRequestConfig
 }
 
-export function requestFailFunc (axiosError) {
+function requestFailFunc (axiosError) {
   // 发送请求失败处理
 
   return Promise.reject(axiosError)
@@ -24,7 +26,7 @@ export function requestFailFunc (axiosError) {
   request?: any;
 }
  */
-export function responseSuccessFunc (axiosResponse) {
+function responseSuccessFunc (axiosResponse) {
   CONSOLE_RESPONSE_ENABLE && console.log('requestInterceptorFunc', 'data: ', axiosResponse.data)
   if (axiosResponse.headers.Authorization) {
     setToken(axiosResponse.headers.Authorization)
@@ -42,7 +44,7 @@ export interface AxiosError<T = any> extends Error {
   toJSON: () => object;
 }
  */
-export function responseFailFunc (responseError) { // 这边的错误处理逻辑根据各个系统不一样可以单独修改
+function responseFailFunc (responseError) { // 这边的错误处理逻辑根据各个系统不一样可以单独修改
   if (responseError.response) {
     switch (responseError.response.status) {
       case 403:
@@ -69,4 +71,15 @@ export function responseFailFunc (responseError) { // 这边的错误处理逻�
   }
 
   return Promise.reject(responseError)
+}
+
+export default (pluginInstances) => {
+  routerInstance = pluginInstances.router
+  storeInstance = pluginInstances.store
+  // 注入请求拦截
+  axiosInstance
+  .interceptors.request.use(requestSuccessFunc, requestFailFunc)
+  // 注入失败拦截
+  axiosInstance
+  .interceptors.response.use(responseSuccessFunc, responseFailFunc)
 }
