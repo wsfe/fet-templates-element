@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 const routerInstance = createRouter()
 // 注入拦截器
 
-function createRouter() {
+function createRouter () {
   return new VueRouter({
     ...ROUTER_DEFAULT_CONFIG,
     routes: ROUTES
@@ -17,7 +17,7 @@ function createRouter() {
 }
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
-export function resetRouter() {
+export function resetRouter () {
   const newRouter = createRouter()
   routerInstance.matcher = newRouter.matcher // reset router
 }

@@ -32,17 +32,10 @@ function getEnv (env) {
 }
 
 module.exports = {
-  publicPath: getPublicPath(),
+  publicPath: '/',
   outputDir: process.env.NODE_ENV === 'joint' ? resolve('dev') : resolve('prd'),
   lintOnSave: false,
   productionSourceMap: false,
-  css: {
-    loaderOptions: {
-      less: {
-        javascriptEnabled: true
-      }
-    }
-  },
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*'
@@ -52,6 +45,15 @@ module.exports = {
     buildConfig[getEnv(process.env.NODE_ENV)].configureWebpack(config)
   },
   chainWebpack (config) {
+    config.externals({
+      lodash : {
+        commonjs: 'lodash',
+        amd: 'lodash',
+        root: '_' // indicates global variable
+      },
+      vue: 'Vue',
+      'element-ui': "ELEMENT"
+    })
 
     /* 设置 resolve.alias */
     config.resolve.alias

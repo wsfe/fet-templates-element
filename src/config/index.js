@@ -4,7 +4,7 @@ export const NODE_ENV = process.env.NODE_ENV || 'production'
 // 路由默认配置，路由表并不从此注入
 export const ROUTER_DEFAULT_CONFIG = {
   mode: 'history',
-  base: window.globalConfig.routeBaseUrl || '/',
+  base: '/',
   waitForData: true,
   transitionOnLoad: true,
   scrollBehavior (to, from, savedPosition) {
@@ -17,7 +17,7 @@ export const AXIOS_DEFAULT_CONFIG = {
   timeout: 20000,
   maxContentLength: 2000,
   headers: {},
-  baseURL: window.globalConfig.baseURL || '/'
+  baseURL: '/api'
 }
 
 // vuex 默认配置
@@ -40,9 +40,8 @@ export const CONST_DEFAULT_CONFIG = {
 export const CONSOLE_REQUEST_ENABLE = NODE_ENV !== 'production' // 开启请求参数打印
 export const CONSOLE_RESPONSE_ENABLE = NODE_ENV !== 'production' // 开启响应参数打印
 
-
 export const APP_SETTINGS = {
-  title: 'Vue Element Admin',
+  title: 'fet Element Admin',
 
   /**
    * @type {boolean} true | false

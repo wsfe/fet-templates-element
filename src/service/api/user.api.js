@@ -2,14 +2,14 @@ export default [
   {
     name: 'login',
     method: 'POST',
-    path: '/api/user/login',
+    path: '/user/login',
     params: {},
     desc: '登录'
   },
   {
     name: 'getInfo',
     method: 'GET',
-    path: '/api/user',
+    path: '/user',
     params: {},
     desc: '获取用户信息'
   }

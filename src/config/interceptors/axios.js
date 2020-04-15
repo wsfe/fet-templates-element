@@ -2,7 +2,7 @@ import { CONSOLE_REQUEST_ENABLE, CONSOLE_RESPONSE_ENABLE } from '@/config'
 import { get } from 'lodash'
 import {setToken, getToken} from '@/utils/auth'
 
-let routerInstance, storeInstance
+let routerInstance
 
 function requestSuccessFunc (axiosRequestConfig) {
   CONSOLE_REQUEST_ENABLE && console.info('requestInterceptorFunc', `url: ${axiosRequestConfig.url}`, axiosRequestConfig)
@@ -51,6 +51,7 @@ function responseFailFunc (responseError) { // 这边的错误处理逻辑根据
         location.reload() // 403强制刷新
         break
       case 401:
+        routerInstance.push('/login') // 跳转到登录页面
         responseError.message = '未授权，请重新登录'
         break
       default:
@@ -75,11 +76,8 @@ function responseFailFunc (responseError) { // 这边的错误处理逻辑根据
 
 export default (pluginInstances) => {
   routerInstance = pluginInstances.router
-  storeInstance = pluginInstances.store
   // 注入请求拦截
-  axiosInstance
-  .interceptors.request.use(requestSuccessFunc, requestFailFunc)
+  pluginInstances.axios.interceptors.request.use(requestSuccessFunc, requestFailFunc)
   // 注入失败拦截
-  axiosInstance
-  .interceptors.response.use(responseSuccessFunc, responseFailFunc)
+  pluginInstances.axios.interceptors.response.use(responseSuccessFunc, responseFailFunc)
 }

@@ -5,7 +5,7 @@
   "author": "freefish",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --port 8080",
+    "start": "vue-cli-service serve --port 8080",
     "build": "vue-cli-service build --server=online",
     "build:beta": "vue-cli-service build --server=beta",
     "build:report": "vue-cli-service build --report",
@@ -19,6 +19,11 @@
     "axios": "0.18.0",
     "core-js": "^3",
     "dayjs": "^1.8.18",
+    "driver.js": "^0.9.8",
+    "element-ui": "^2.13.1",
+    "fuse.js": "^5.1.0",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
     "screenfull": "^5.0.2",
     "vue-router": "^3.1.2",
     "vuex": "^3.1.1"
