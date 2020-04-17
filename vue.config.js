@@ -46,11 +46,7 @@ module.exports = {
   },
   chainWebpack (config) {
     config.externals({
-      lodash : {
-        commonjs: 'lodash',
-        amd: 'lodash',
-        root: '_' // indicates global variable
-      },
+      lodash : '_',
       vue: 'Vue',
       'element-ui': "ELEMENT"
     })

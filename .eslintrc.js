@@ -11,6 +11,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'dot-notation': 'off',
     'object-curly-spacing': 'off',
     'vue/no-parsing-error': [
       2,

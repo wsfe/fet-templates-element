@@ -2,7 +2,7 @@ import axios from './axios'
 import { API_DEFAULT_CONFIG } from '@/config'
 import API_CONFIG from '@/service/api'
 import { assert } from '@/utils'
-import { assign, isEmpty, pick } from 'lodash'
+import _ from 'lodash'
 
 class MakeApi {
   constructor (options) {
@@ -41,10 +41,11 @@ class MakeApi {
 
       Object.defineProperty(this.api, apiName, {
         value (outerParams, outerOptions) {
-          const _params = isEmpty(outerParams) ? params : assign({}, params, outerParams)
-          const _data = strict ? pick(_params, Object.keys(params)) : _params
+          console.log('lodash===', _)
+          const _params = _.isEmpty(outerParams) ? params : _.assign({}, params, outerParams)
+          const _data = strict ? _.pick(_params, Object.keys(params)) : _params
           const url = _replaceURLparams(apiUrl, _params)
-          return axios(_normoalize(assign({
+          return axios(_normoalize(_.assign({
             url,
             method
           }, outerOptions), _data))

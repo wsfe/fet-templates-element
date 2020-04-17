@@ -1,5 +1,5 @@
 import { CONSOLE_REQUEST_ENABLE, CONSOLE_RESPONSE_ENABLE } from '@/config'
-import { get } from 'lodash'
+import _ from 'lodash'
 import {setToken, getToken} from '@/utils/auth'
 
 let routerInstance
@@ -55,7 +55,7 @@ function responseFailFunc (responseError) { // 这边的错误处理逻辑根据
         responseError.message = '未授权，请重新登录'
         break
       default:
-        responseError.message = get(responseError, 'response.data.msg', '出错啦')
+        responseError.message = _.get(responseError, 'response.data.msg', '出错啦')
     }
   } else { // 无返回的默认提示
     responseError.message = '网络问题，请刷新重试'

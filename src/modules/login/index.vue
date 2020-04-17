@@ -128,7 +128,9 @@ export default {
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm)
-            .then(() => {
+            .then(async () => {
+              const asyncRoutes = await this.$store.dispatch('permission/generateRoutes')
+              this.$router.addRoutes(asyncRoutes)
               this.$router.push({ path: this.redirect || '/documentation', query: this.otherQuery })
               this.loading = false
             })

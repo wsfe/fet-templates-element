@@ -17,17 +17,18 @@ async function routerBeforeEachFunc (to, from, next) {
       next()
     }
   } else {
-
     if (whiteList.indexOf(to.path) !== -1) {
       // in the free login whitelist, go directly
       next()
     } else {
       try {
         await store.dispatch('user/getInfo')
-        // TODO 动态加载路由
+        const asyncRoutes = await store.dispatch('permission/generateRoutes')
+        router.addRoutes(asyncRoutes)
         next({...to, replace: true})
         // other pages that do not have permission to access are redirected to the login page.
       } catch (err) {
+        console.error(err)
         next(`/login?redirect=${to.path}`)
       } finally {
         NProgress.done()

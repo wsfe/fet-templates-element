@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ROUTES from '@/routes'
+import {constantRoutes} from '@/routes'
 import { ROUTER_DEFAULT_CONFIG } from '@/config'
 
 Vue.use(VueRouter)
@@ -12,7 +12,7 @@ const routerInstance = createRouter()
 function createRouter () {
   return new VueRouter({
     ...ROUTER_DEFAULT_CONFIG,
-    routes: ROUTES
+    routes: constantRoutes
   })
 }
 
