@@ -41,7 +41,6 @@ class MakeApi {
 
       Object.defineProperty(this.api, apiName, {
         value (outerParams, outerOptions) {
-          console.log('lodash===', _)
           const _params = _.isEmpty(outerParams) ? params : _.assign({}, params, outerParams)
           const _data = strict ? _.pick(_params, Object.keys(params)) : _params
           const url = _replaceURLparams(apiUrl, _params)

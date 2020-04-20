@@ -12,6 +12,8 @@ import App from './App'
 import '@/directives'
 import '@/filters'
 import '@/mixins'
+import './icons' // icon
+import './utils/error-log' // error log
 
 if (process.env.NODE_ENV === 'development') {
   require('../mock')

@@ -3,7 +3,6 @@ import axios from './axios'
 import api from './api'
 import router from './router'
 import store from './store'
-import havePerimission from './permission'
 import interceptor from '@/config/interceptors'
 
 // 全局ajax
@@ -19,6 +18,6 @@ export default {
     Vue.prototype.$ajax = axios
     Vue.prototype.$api = api
     Vue.prototype.$const = consts
-    Vue.prototype.$permission = havePerimission
+    // Vue.prototype.$permission = havePerimission
   }
 }

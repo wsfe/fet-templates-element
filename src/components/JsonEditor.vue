@@ -13,7 +13,7 @@ import 'codemirror/mode/javascript/javascript'
 import 'codemirror/addon/lint/lint'
 import 'codemirror/addon/lint/json-lint'
 /* eslint-disable import/no-webpack-loader-syntax */
-require('script-loader!jsonlint')
+// require('script-loader!jsonlint')
 
 export default {
   name: 'JsonEditor',

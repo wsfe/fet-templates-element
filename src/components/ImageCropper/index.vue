@@ -136,7 +136,6 @@
 
 <script>
 'use strict'
-import request from '@/utils/request'
 import language from './utils/language.js'
 import mimes from './utils/mimes.js'
 import data2blob from './utils/data2blob.js'
@@ -791,7 +790,7 @@ export default {
       this.reset()
       this.loading = 1
       this.setStep(3)
-      request({
+      this.$axios({
         url,
         method: 'post',
         data: fmData

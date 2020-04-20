@@ -9,6 +9,21 @@ const state = {
   sidebarLogo: sidebarLogo
 }
 
+const getters = {
+  showSettings (state) {
+    return state.showSettings
+  },
+  needTagsView (state) {
+    return state.tagsView
+  },
+  fixedHeader (state) {
+    return state.fixedHeader
+  },
+  sidebarLogo (state) {
+    return state.sidebarLogo
+  }
+}
+
 const mutations = {
   CHANGE_SETTING: (state, { key, value }) => {
     if (Object.prototype.hasOwnProperty.call(state, key)) {
@@ -26,6 +41,7 @@ const actions = {
 export default {
   namespaced: true,
   state,
+  getters,
   mutations,
   actions
 }

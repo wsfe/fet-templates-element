@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import store from '@/store'
+import store from '@/plugins/store'
 import { isString, isArray } from '@/utils/validate'
 import {APP_SETTINGS, NODE_ENV} from '@/config'
 

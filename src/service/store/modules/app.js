@@ -7,6 +7,15 @@ const state = {
   size: localStorage.getItem('size') || 'medium'
 }
 
+const getters = {
+  device (state) {
+    return state.device
+  },
+  sidebar (state) {
+    return state.sidebar
+  }
+}
+
 const mutations = {
   TOGGLE_SIDEBAR: state => {
     state.sidebar.opened = !state.sidebar.opened
@@ -49,6 +58,7 @@ const actions = {
 export default {
   namespaced: true,
   state,
+  getters,
   mutations,
   actions
 }

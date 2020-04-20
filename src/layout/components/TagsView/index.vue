@@ -42,10 +42,10 @@ export default {
   },
   computed: {
     visitedViews () {
-      return this.$store.state.tagsView.visitedViews
+      return this.$store.getters.visitedViews
     },
     routes () {
-      return this.$store.state.permission.routes
+      return this.$store.getters.permission_routes
     }
   },
   watch: {

@@ -28,7 +28,7 @@ export default {
   computed: {
     fixedHeader: {
       get () {
-        return this.$store.state.settings.fixedHeader
+        return this.$store.getters['settings/fixedHeader']
       },
       set (val) {
         this.$store.dispatch('settings/changeSetting', {
@@ -39,7 +39,7 @@ export default {
     },
     tagsView: {
       get () {
-        return this.$store.state.settings.tagsView
+        return this.$store.getters['settings/tagsView']
       },
       set (val) {
         this.$store.dispatch('settings/changeSetting', {
@@ -50,7 +50,7 @@ export default {
     },
     sidebarLogo: {
       get () {
-        return this.$store.state.settings.sidebarLogo
+        return this.$store.getters['settings/sidebarLogo']
       },
       set (val) {
         this.$store.dispatch('settings/changeSetting', {
