@@ -50,6 +50,7 @@ export default {
   },
   watch: {
     $route () {
+      debugger
       this.addTags()
       this.moveToCurrentTag()
     },

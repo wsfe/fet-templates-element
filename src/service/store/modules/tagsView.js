@@ -1,3 +1,4 @@
+import _ from 'lodash'
 const state = {
   visitedViews: [],
   cachedViews: []
@@ -8,10 +9,11 @@ const mutations = {
     if (state.visitedViews.some(v => v.path === view.path)) return
     debugger
     state.visitedViews.push(
-      Object.assign({}, view, {
+      Object.assign({}, _.omit(view, ['matched']), {
         title: view.meta.title || 'no-name'
       })
     )
+    debugger
   },
   ADD_CACHED_VIEW: (state, view) => {
     if (state.cachedViews.includes(view.name)) return
